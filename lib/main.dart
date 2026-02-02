@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:new_flutter_project/layouts.dart';
+import 'package:new_flutter_project/lesson_two/expanded_widget_lesson.dart';
+import 'package:new_flutter_project/lesson_two/responsive_design.dart';
+import 'package:new_flutter_project/lesson_two/stack_and_positioned.dart';
 
 import 'my_home_page.dart';
 
@@ -16,6 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         appBarTheme: AppBarTheme(
@@ -32,7 +36,7 @@ class MyApp extends StatelessWidget {
           unselectedLabelStyle: TextStyle(color: Colors.red),
         ),
       ),
-      home: const MyLayouts(),
+      home: const ResponsiveDesign(),
     );
   }
 }
