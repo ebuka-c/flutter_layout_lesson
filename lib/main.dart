@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:new_flutter_project/layouts.dart';
-import 'package:new_flutter_project/lesson_two/expanded_widget_lesson.dart';
-import 'package:new_flutter_project/lesson_two/responsive_design.dart';
-import 'package:new_flutter_project/lesson_two/stack_and_positioned.dart';
 import 'package:new_flutter_project/utils/colors.dart';
 
 import 'authentication_screens/login.dart';
-import 'my_home_page.dart';
+import 'authentication_screens/sign_up.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,11 +19,11 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
         scaffoldBackgroundColor: Color(0xff000000),
         appBarTheme: AppBarTheme(
-          foregroundColor: Colors.brown,
-          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+          foregroundColor: Colors.blueGrey,
+          backgroundColor: Theme.of(context).colorScheme.scrim,
         ),
         textTheme: TextTheme(
           headlineLarge: TextStyle(fontFamily: GoogleFonts.acme().fontFamily),
@@ -36,7 +32,7 @@ class MyApp extends StatelessWidget {
           bodyMedium: TextStyle(
             fontFamily: GoogleFonts.inter().fontFamily,
             fontSize: 14,
-            color: AppColors.white,
+            color: AppColors.grey,decorationColor: Colors.white
           ),
         ),
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
@@ -44,7 +40,7 @@ class MyApp extends StatelessWidget {
           unselectedLabelStyle: TextStyle(color: Colors.red),
         ),
       ),
-      home: const LoginScreen(),
+      home:  LoginScreen(),
     );
   }
 }
