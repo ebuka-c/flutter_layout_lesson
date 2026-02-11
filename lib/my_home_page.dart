@@ -44,7 +44,12 @@ class _MyHomePageState extends State<MyHomePage> {
             TextButton(onPressed: () {}, child: Text('CLICK')),
             // SizedBox(height: 250),
             const Text('You have pushed the button this many times:'),
-            Text('$_counter', style: Theme.of(context).textTheme.headlineLarge),
+            Text(
+              '$_counter',
+              style: Theme.of(
+                context,
+              ).textTheme.headlineLarge?.copyWith(color: Colors.white),
+            ),
             Spacer(),
           ],
         ),
