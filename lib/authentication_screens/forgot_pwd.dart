@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:new_flutter_project/authentication_screens/login.dart';
 import 'package:new_flutter_project/reusable/auth_text_field.dart'
     show AuthTextField;
 import 'package:new_flutter_project/utils/colors.dart';
+import 'package:new_flutter_project/authentication_screens/sign_up.dart';
 
-import '../utils/route_names.dart';
-
-class CreateAccountPage extends StatelessWidget {
+// ignore: must_be_immutable
+class ForgotPwd extends StatelessWidget {
   bool obscurePassword = true;
 
-  CreateAccountPage({super.key});
+  ForgotPwd({super.key});
 
   IconButton _socialButton(
     IconData icon,
@@ -32,14 +31,14 @@ class CreateAccountPage extends StatelessWidget {
           children: [
             RichText(
               text: TextSpan(
-                text: 'Create ',
+                text: 'Forgot ',
                 style: Theme.of(context).textTheme.headlineLarge?.copyWith(
                   color: AppColors.white,
                   fontSize: 45,
                 ),
                 children: [
                   TextSpan(
-                    text: ' Account',
+                    text: ' Password',
                     style: Theme.of(context).textTheme.headlineLarge?.copyWith(
                       color: AppColors.hexf7c011,
                       fontSize: 45,
@@ -53,42 +52,17 @@ class CreateAccountPage extends StatelessWidget {
               "Let's continue your journey",
               style: Theme.of(context).textTheme.bodyMedium,
             ),
-            SizedBox(height: 35),
-            AuthTextField(hintText: 'FullName', prefixIcon: Icons.person),
-
             SizedBox(height: 15),
-
             AuthTextField(hintText: 'Email', prefixIcon: Icons.email),
 
             SizedBox(height: 15),
 
-            StatefulBuilder(
-              builder: (context, setState) {
-                return AuthTextField(
-                  hintText: 'Password',
-                  prefixIcon: Icons.key,
-                  obscure: obscurePassword,
-                  suffixIcon: IconButton(
-                    icon: Icon(
-                      obscurePassword ? Icons.visibility_off : Icons.visibility,
-                      color: Colors.grey,
-                    ),
-                    onPressed: () {
-                      setState(() {
-                        obscurePassword = !obscurePassword;
-                      });
-                    },
-                  ),
-                );
-              },
-            ),
-
-            SizedBox(height: 100),
+            SizedBox(height: 30),
 
             // Login Button
             SizedBox(
               width: double.infinity,
-              height: 50,
+              height: 40,
               child: ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
@@ -109,18 +83,11 @@ class CreateAccountPage extends StatelessWidget {
             Align(
               alignment: AlignmentGeometry.bottomCenter,
               child: Text(
-                "------- or signup with -------",
+                "---------- or login with ----------",
                 style: TextStyle(color: Colors.grey, fontSize: 14),
               ),
             ),
             SizedBox(height: 25),
-
-            ColorFiltered(
-              colorFilter: const ColorFilter.mode(
-                Colors.white,
-                BlendMode.srcIn,
-              ),
-            ),
 
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -134,26 +101,19 @@ class CreateAccountPage extends StatelessWidget {
             ),
             Spacer(),
 
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text(
-                  'Already have an account? ',
-                  style: TextStyle(color: Colors.grey, fontSize: 14),
-                ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, loginRoute);
-                  },
-                  child: const Text(
-                    'Log in',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w900,
-                      color: Colors.white,
-                    ),
+            Center(
+              child: TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: const Text(
+                  'Go back',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w900,
+                    color: Colors.white,
                   ),
                 ),
-              ],
+              ),
             ),
           ],
         ),

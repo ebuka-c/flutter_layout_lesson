@@ -1,12 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:new_flutter_project/authentication_screens/forgot_pwd.dart';
+import 'package:new_flutter_project/counter/count_tracker.dart';
+import 'package:new_flutter_project/home/home_screen.dart';
+import 'package:new_flutter_project/counter/counter_screen.dart';
+import 'package:new_flutter_project/providers/count_provider.dart';
 import 'package:new_flutter_project/utils/colors.dart';
+import 'package:provider/provider.dart';
 
 import 'authentication_screens/login.dart';
 import 'authentication_screens/sign_up.dart';
+import 'utils/route_names.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => CountProvider(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -32,7 +44,8 @@ class MyApp extends StatelessWidget {
           bodyMedium: TextStyle(
             fontFamily: GoogleFonts.inter().fontFamily,
             fontSize: 14,
-            color: AppColors.grey,decorationColor: Colors.white
+            color: AppColors.grey,
+            decorationColor: Colors.white,
           ),
         ),
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
@@ -40,7 +53,17 @@ class MyApp extends StatelessWidget {
           unselectedLabelStyle: TextStyle(color: Colors.red),
         ),
       ),
-      home:  LoginScreen(),
+      // home: LoginScreen(),
+      //named routes
+      initialRoute: '/counter_screen',
+      routes: {
+        loginRoute: (context) => LoginScreen(),
+        '/sign_up': (context) => CreateAccountPage(),
+        '/forgot_pwd': (context) => ForgotPwd(),
+        '/home_screen': (context) => HomeScreen(),
+        '/counter_screen': (context) => CounterScreen(title: 'Counter App'),
+        '/tracker': (context) => CountTracker(),
+      },
     );
   }
 }

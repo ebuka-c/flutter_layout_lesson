@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:new_flutter_project/authentication_screens/forgot_pwd.dart';
+import 'package:new_flutter_project/home/home_screen.dart';
 import 'package:new_flutter_project/reusable/auth_text_field.dart'
     show AuthTextField;
 import 'package:new_flutter_project/utils/colors.dart';
@@ -83,7 +85,12 @@ class LoginScreen extends StatelessWidget {
             Align(
               alignment: Alignment.bottomRight,
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ForgotPwd()),
+                  );
+                },
                 child: const Text(
                   'Forgot password?',
                   style: TextStyle(color: Colors.grey),
@@ -98,7 +105,12 @@ class LoginScreen extends StatelessWidget {
               width: double.infinity,
               height: 40,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (ctx) => HomeScreen()),
+                  );
+                },
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
