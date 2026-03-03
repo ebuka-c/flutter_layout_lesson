@@ -86,10 +86,7 @@ class LoginScreen extends StatelessWidget {
               alignment: Alignment.bottomRight,
               child: TextButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => ForgotPwd()),
-                  );
+                  Navigator.pushNamed(context, '/forgot_pwd');
                 },
                 child: const Text(
                   'Forgot password?',
@@ -98,6 +95,12 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
 
+            /**
+             * PUSH
+             * POP
+             * PUSHREPLACEMENT
+             * OFF
+             */
             SizedBox(height: 10),
 
             // Login Button
@@ -106,10 +109,7 @@ class LoginScreen extends StatelessWidget {
               height: 40,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(builder: (ctx) => HomeScreen()),
-                  );
+                  Navigator.pushReplacementNamed(context, '/home_screen');
                 },
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(

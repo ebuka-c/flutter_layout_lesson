@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:new_flutter_project/providers/count_provider.dart';
+import 'package:provider/provider.dart';
 
 class CountTracker extends StatelessWidget {
   const CountTracker({super.key, this.countValue});
@@ -20,11 +22,15 @@ class CountTracker extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             const Text('You have pushed the button this many times:'),
-            Text(
-              '$countValue',
-              style: Theme.of(
-                context,
-              ).textTheme.headlineLarge?.copyWith(color: Colors.white),
+            Consumer<CountProvider>(
+              builder: (context, count, child) {
+                return Text(
+                  '$countValue',
+                  style: Theme.of(
+                    context,
+                  ).textTheme.headlineLarge?.copyWith(color: Colors.white),
+                );
+              },
             ),
           ],
         ),

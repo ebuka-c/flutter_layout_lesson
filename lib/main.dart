@@ -5,6 +5,7 @@ import 'package:new_flutter_project/counter/count_tracker.dart';
 import 'package:new_flutter_project/home/home_screen.dart';
 import 'package:new_flutter_project/counter/counter_screen.dart';
 import 'package:new_flutter_project/providers/count_provider.dart';
+import 'package:new_flutter_project/test.dart';
 import 'package:new_flutter_project/utils/colors.dart';
 import 'package:provider/provider.dart';
 
@@ -53,9 +54,9 @@ class MyApp extends StatelessWidget {
           unselectedLabelStyle: TextStyle(color: Colors.red),
         ),
       ),
-      // home: LoginScreen(),
+      home: MyWidget(),
       //named routes
-      initialRoute: '/counter_screen',
+      // initialRoute: loginRoute,
       routes: {
         loginRoute: (context) => LoginScreen(),
         '/sign_up': (context) => CreateAccountPage(),
